@@ -1,0 +1,7 @@
+parameters:
+#    slashx_admin.example.class: Slashx\AdminBundle\Example
+
+services:
+#    slashx_admin.example:
+#        class: %slashx_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

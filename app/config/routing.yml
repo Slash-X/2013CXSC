@@ -1,0 +1,4 @@
+slashx_admin:
+    resource: "@SlashxAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
