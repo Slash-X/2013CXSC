@@ -1,0 +1,54 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION DES TYPAGES 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Typage</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Lieuconservation</th>
+                <td>{{ entity.lieuConservation }}</td>
+            </tr>
+            <tr>
+                <th>Localite</th>
+                <td>{{ entity.localite }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ entity.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ entity.sexe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('typage') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('typage_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('typage_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

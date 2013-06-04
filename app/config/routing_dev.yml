@@ -2,14 +2,10 @@ SlashxAdminBundle_index:
     pattern:  /
     defaults: { _controller: SlashxAdminBundle:Page:index }
     
-
-SlashxAdminBundle_about:
-    pattern:  /about
-    defaults: { _controller: SlashxAdminBundle:Page:about }
-
-
-
-
+_papillon_index:
+    resource: "@SlashxAdminBundle/Controller/"
+    type:     annotation
+    
 
 
 

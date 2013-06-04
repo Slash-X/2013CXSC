@@ -1,0 +1,54 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION SYSTEMATIQUE 
+{% endblock %}
+
+{% block sub_main %}
+	<p> Test </p>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Famille</th>
+                <th>Espece</th>
+                <th>Sous-Espece</th>
+                <th>Forme</th>
+                <th>Auteur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.famille }}</td>
+                <td>{{ entity.espece }}</td>
+                <td>{{ entity.sousEspece }}</td>
+                <td>{{ entity.forme }}</td>
+                <td>{{ entity.auteur }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('papillon_edit', { 'id': entity.id }) }}">Modifier</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('typage', { 'id': entity.id }) }}">Typage</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('publication', { 'id': entity.id }) }}">Publication</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('papillon_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    	</ul>
+    	<p>&nbsp;</p>
+    {% endblock %}

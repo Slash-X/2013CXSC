@@ -10,7 +10,7 @@ class __TwigTemplate_4a7adf832eccbd71a146f20e357b28ad extends Twig_Template
         $this->parent = $this->env->loadTemplate("SlashxAdminBundle::layout.html.twig");
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'main' => array($this, 'block_main'),
         );
     }
 
@@ -25,10 +25,15 @@ class __TwigTemplate_4a7adf832eccbd71a146f20e357b28ad extends Twig_Template
     }
 
     // line 4
-    public function block_body($context, array $blocks = array())
+    public function block_main($context, array $blocks = array())
     {
         // line 5
-        echo "    Blog homepage
+        echo "    <div class=\"full_w\">
+\t\t<div class=\"h_title\">Administration</div>
+\t\t\t\t
+\t\t<h1>Administration de charaxe.be</h1>\t
+\t\t<p>Veuillez utiliser les différents menu pour administrer votre site</p>\t\t\t
+\t</div>
 ";
     }
 

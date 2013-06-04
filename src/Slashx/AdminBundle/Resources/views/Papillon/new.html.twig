@@ -1,0 +1,24 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION SYSTEMATIQUE 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Papillon creation</h1>
+
+    <form action="{{ path('papillon_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('papillon') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

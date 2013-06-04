@@ -1,0 +1,90 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION DES TYPAGES 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Papillon</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Famille</th>
+                <td>{{ entity.famille }}</td>
+            </tr>
+            <tr>
+                <th>Espece</th>
+                <td>{{ entity.espece }}</td>
+            </tr>
+            <tr>
+                <th>Sousespece</th>
+                <td>{{ entity.sousEspece }}</td>
+            </tr>
+            <tr>
+                <th>Forme</th>
+                <td>{{ entity.forme }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ entity.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ entity.statut }}</td>
+            </tr>
+            <tr>
+                <th>Distributions</th>
+                <td>{{ entity.distributions }}</td>
+            </tr>
+            <tr>
+                <th>Habitats</th>
+                <td>{{ entity.habitats }}</td>
+            </tr>
+            <tr>
+                <th>Plantes</th>
+                <td>{{ entity.plantes }}</td>
+            </tr>
+            <tr>
+                <th>Premiersetats</th>
+                <td>{{ entity.premiersEtats }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ entity.couleur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('papillon') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('papillon_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('papillon_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

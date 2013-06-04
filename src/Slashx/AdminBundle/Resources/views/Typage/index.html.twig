@@ -1,0 +1,47 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION DES TYPAGES 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>{{ papillon.nom }}</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Lieu de conservation</th>
+                <th>Localite</th>
+                <th>Categorie</th>
+                <th>Sexe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.lieuConservation }}</td>
+                <td>{{ entity.localite }}</td>
+                <td>{{ entity.categorie }}</td>
+                <td>{{ entity.sexe }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('typage_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('typage_new', { 'id': papillon.id }) }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+     	<p>&nbsp;</p>
+    {% endblock %}

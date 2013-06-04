@@ -34,9 +34,259 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PageController::indexAction',  '_route' => 'SlashxAdminBundle_index',);
         }
 
-        // SlashxAdminBundle_about
-        if ($pathinfo === '/about') {
-            return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PageController::aboutAction',  '_route' => 'SlashxAdminBundle_about',);
+        if (0 === strpos($pathinfo, '/p')) {
+            if (0 === strpos($pathinfo, '/papillon')) {
+                // papillon
+                if (rtrim($pathinfo, '/') === '/papillon') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_papillon;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'papillon');
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::indexAction',  '_route' => 'papillon',);
+                }
+                not_papillon:
+
+                // papillon_create
+                if ($pathinfo === '/papillon/') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_papillon_create;
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::createAction',  '_route' => 'papillon_create',);
+                }
+                not_papillon_create:
+
+                // papillon_new
+                if ($pathinfo === '/papillon/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_papillon_new;
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::newAction',  '_route' => 'papillon_new',);
+                }
+                not_papillon_new:
+
+                // papillon_show
+                if (preg_match('#^/papillon/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_papillon_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'papillon_show')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::showAction',));
+                }
+                not_papillon_show:
+
+                // papillon_edit
+                if (preg_match('#^/papillon/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_papillon_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'papillon_edit')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::editAction',));
+                }
+                not_papillon_edit:
+
+                // papillon_update
+                if (preg_match('#^/papillon/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'PUT') {
+                        $allow[] = 'PUT';
+                        goto not_papillon_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'papillon_update')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::updateAction',));
+                }
+                not_papillon_update:
+
+                // papillon_delete
+                if (preg_match('#^/papillon/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_papillon_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'papillon_delete')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::deleteAction',));
+                }
+                not_papillon_delete:
+
+            }
+
+            if (0 === strpos($pathinfo, '/publication')) {
+                // publication
+                if (rtrim($pathinfo, '/') === '/publication') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_publication;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'publication');
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::indexAction',  '_route' => 'publication',);
+                }
+                not_publication:
+
+                // publication_create
+                if ($pathinfo === '/publication/') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_publication_create;
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::createAction',  '_route' => 'publication_create',);
+                }
+                not_publication_create:
+
+                // publication_new
+                if ($pathinfo === '/publication/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_publication_new;
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::newAction',  '_route' => 'publication_new',);
+                }
+                not_publication_new:
+
+                // publication_show
+                if (preg_match('#^/publication/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_publication_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'publication_show')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::showAction',));
+                }
+                not_publication_show:
+
+                // publication_edit
+                if (preg_match('#^/publication/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_publication_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'publication_edit')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::editAction',));
+                }
+                not_publication_edit:
+
+                // publication_update
+                if (preg_match('#^/publication/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'PUT') {
+                        $allow[] = 'PUT';
+                        goto not_publication_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'publication_update')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::updateAction',));
+                }
+                not_publication_update:
+
+                // publication_delete
+                if (preg_match('#^/publication/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_publication_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'publication_delete')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PublicationController::deleteAction',));
+                }
+                not_publication_delete:
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/typage')) {
+            // typage
+            if (rtrim($pathinfo, '/') === '/typage') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_typage;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'typage');
+                }
+
+                return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::indexAction',  '_route' => 'typage',);
+            }
+            not_typage:
+
+            // typage_create
+            if ($pathinfo === '/typage/') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_typage_create;
+                }
+
+                return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::createAction',  '_route' => 'typage_create',);
+            }
+            not_typage_create:
+
+            // typage_new
+            if ($pathinfo === '/typage/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_typage_new;
+                }
+
+                return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::newAction',  '_route' => 'typage_new',);
+            }
+            not_typage_new:
+
+            // typage_show
+            if (preg_match('#^/typage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_typage_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typage_show')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::showAction',));
+            }
+            not_typage_show:
+
+            // typage_edit
+            if (preg_match('#^/typage/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_typage_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typage_edit')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::editAction',));
+            }
+            not_typage_edit:
+
+            // typage_update
+            if (preg_match('#^/typage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'PUT') {
+                    $allow[] = 'PUT';
+                    goto not_typage_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typage_update')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::updateAction',));
+            }
+            not_typage_update:
+
+            // typage_delete
+            if (preg_match('#^/typage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_typage_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typage_delete')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\TypageController::deleteAction',));
+            }
+            not_typage_delete:
+
         }
 
         if (0 === strpos($pathinfo, '/demo')) {

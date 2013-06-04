@@ -12,163 +12,138 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'stylesheets' => array($this, 'block_stylesheets'),
-            'navigation' => array($this, 'block_navigation'),
-            'blog_title' => array($this, 'block_blog_title'),
-            'blog_tagline' => array($this, 'block_blog_tagline'),
-            'body' => array($this, 'block_body'),
-            'sidebar' => array($this, 'block_sidebar'),
-            'footer' => array($this, 'block_footer'),
             'javascripts' => array($this, 'block_javascripts'),
+            'navigation_hz' => array($this, 'block_navigation_hz'),
+            'main' => array($this, 'block_main'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<!-- app/Resources/views/base.html.twig -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv=\"Content-Type\" content=\"text/html\"; charset=utf-8\" />
-        <title>";
+        echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
+<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"pl\" xml:lang=\"pl\">
+<head>
+<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
+<meta name=\"author\" content=\"Paweł 'kilab' Balicki - kilab.pl\" />
+<title>";
         // line 6
         $this->displayBlock('title', $context, $blocks);
         echo " - symblog</title>
-        <!--[if lt IE 9]>
-            <script src=\"http://html5shim.googlecode.com/svn/trunk/html5.js\"></script>
-        <![endif]-->
+
         ";
-        // line 10
+        // line 8
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 15
-        echo "        <link rel=\"shortcut icon\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
-        echo "\" />
-    </head>
-    <body>
-
-        <section id=\"wrapper\">
-            <header id=\"header\">
-                <div class=\"top\">
-                    ";
-        // line 22
-        $this->displayBlock('navigation', $context, $blocks);
-        // line 31
-        echo "                </div>
-
-                <hgroup>
-                    <h2>";
-        // line 34
-        $this->displayBlock('blog_title', $context, $blocks);
-        echo "</h2>
-                    <h3>";
-        // line 35
-        $this->displayBlock('blog_tagline', $context, $blocks);
-        echo "</h3>
-                </hgroup>
-            </header>
-
-            <section class=\"main-col\">
-                ";
-        // line 40
-        $this->displayBlock('body', $context, $blocks);
-        // line 41
-        echo "            </section>
-            <aside class=\"sidebar\">
-                ";
-        // line 43
-        $this->displayBlock('sidebar', $context, $blocks);
-        // line 44
-        echo "            </aside>
-
-            <div id=\"footer\">
-                ";
-        // line 47
-        $this->displayBlock('footer', $context, $blocks);
-        // line 50
-        echo "            </div>
-        </section>
-
+        // line 12
+        echo "
         ";
-        // line 53
+        // line 13
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 54
-        echo "    </body>
-</html>";
+        // line 16
+        echo "        
+<script type=\"text/javascript\">
+\$(function(){
+\t\$(\".box .h_title\").not(this).next(\"ul\").hide(\"normal\");
+\t\$(\".box .h_title\").not(this).next(\"#home\").show(\"normal\");
+\t\$(\".box\").children(\".h_title\").click( function() { \$(this).next(\"ul\").slideToggle(); });
+});
+</script>
+
+</head>
+<body>
+<div class=\"wrap\">
+\t<div id=\"header\">
+\t\t<div id=\"top\">
+\t\t\t<div class=\"left\">
+\t\t\t\t<p>Welcome, <strong>Paweł B.</strong> [ <a href=\"\">logout</a> ]</p>
+\t\t\t</div>
+\t\t\t<div class=\"right\">
+\t\t\t\t<div class=\"align-right\">
+\t\t\t\t\t<p>Last login: <strong>23-04-2012 23:12</strong></p>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t
+\t\t";
+        // line 40
+        $this->displayBlock('navigation_hz', $context, $blocks);
+        // line 42
+        echo "\t</div>
+\t
+\t<div id=\"content\">
+\t\t<div id=\"sidebar\">
+\t\t\t<div class=\"box\">
+\t\t\t\t<div class=\"h_title\">&#8250; Main control</div>
+\t\t\t\t<ul>
+\t\t\t\t\t<li class=\"b1\"><a class=\"icon view_page\" href=\"\">Visit site</a></li>
+\t\t\t\t\t<li class=\"b2\"><a class=\"icon report\" href=\"\">Reports</a></li>
+\t\t\t\t\t<li class=\"b1\"><a class=\"icon add_page\" href=\"\">Add new page</a></li>
+\t\t\t\t\t<li class=\"b2\"><a class=\"icon config\" href=\"\">Site config</a></li>
+\t\t\t\t</ul>
+\t\t\t</div>
+\t\t\t
+\t\t</div>
+\t\t
+\t\t<div id=\"main\">
+\t\t<div class=\"clear\"></div>
+
+\t\t";
+        // line 61
+        $this->displayBlock('main', $context, $blocks);
+        // line 64
+        echo "\t\t
+\t\t</div>
+
+</div>
+
+</body>
+</html>
+";
     }
 
     // line 6
     public function block_title($context, array $blocks = array())
     {
-        echo "symblog";
+        echo "Mon titre";
     }
 
-    // line 10
+    // line 8
     public function block_stylesheets($context, array $blocks = array())
     {
-        // line 11
-        echo "            <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+        // line 9
+        echo "            <link href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/css/style.css"), "html", null, true);
+        echo "\" type=\"text/css\" rel=\"stylesheet\" />
             <link href=\"";
-        // line 13
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/css/screen.css"), "html", null, true);
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/css/navi.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
         ";
     }
 
-    // line 22
-    public function block_navigation($context, array $blocks = array())
+    // line 13
+    public function block_javascripts($context, array $blocks = array())
     {
-        // line 23
-        echo "    <nav>
-        <ul class=\"navigation\">
-            <li><a href=\"";
-        // line 25
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("SlashxAdminBundle_index"), "html", null, true);
-        echo "\">Home</a></li>
-            <li><a href=\"";
-        // line 26
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("SlashxAdminBundle_about"), "html", null, true);
-        echo "\">About</a></li>
-            <li><a href=\"#\">Contact</a></li>
-        </ul>
-    </nav>
-                    ";
-    }
-
-    // line 34
-    public function block_blog_title($context, array $blocks = array())
-    {
-        echo "<a href=\"#\">symblog</a>";
-    }
-
-    // line 35
-    public function block_blog_tagline($context, array $blocks = array())
-    {
-        echo "<a href=\"#\">creating a blog in Symfony2</a>";
+        // line 14
+        echo "        \t<script type=\"text/javascript\" src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/js/jquery-1.7.2.min.js"), "html", null, true);
+        echo "\"></script>
+        ";
     }
 
     // line 40
-    public function block_body($context, array $blocks = array())
+    public function block_navigation_hz($context, array $blocks = array())
     {
+        // line 41
+        echo "\t\t";
     }
 
-    // line 43
-    public function block_sidebar($context, array $blocks = array())
+    // line 61
+    public function block_main($context, array $blocks = array())
     {
-    }
+        echo "\t
 
-    // line 47
-    public function block_footer($context, array $blocks = array())
-    {
-        // line 48
-        echo "                    Symfony2 blog tutorial - created by <a href=\"https://github.com/dsyph3r\">dsyph3r</a>
-                ";
-    }
-
-    // line 53
-    public function block_javascripts($context, array $blocks = array())
-    {
+\t\t";
     }
 
     public function getTemplateName()
@@ -176,13 +151,8 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
         return "::base.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  170 => 53,  165 => 48,  162 => 47,  157 => 43,  152 => 40,  146 => 35,  140 => 34,  131 => 26,  127 => 25,  123 => 23,  120 => 22,  114 => 13,  110 => 11,  107 => 10,  101 => 6,  96 => 54,  94 => 53,  89 => 50,  87 => 47,  82 => 44,  80 => 43,  76 => 41,  74 => 40,  66 => 35,  62 => 34,  57 => 31,  55 => 22,  44 => 15,  42 => 10,  35 => 6,  28 => 1,);
+        return array (  142 => 61,  138 => 41,  135 => 40,  128 => 14,  125 => 13,  114 => 9,  105 => 6,  94 => 64,  92 => 61,  71 => 42,  43 => 16,  41 => 13,  38 => 12,  36 => 8,  24 => 1,  151 => 60,  144 => 55,  132 => 49,  126 => 46,  119 => 10,  115 => 41,  111 => 8,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  89 => 35,  85 => 34,  81 => 33,  77 => 32,  73 => 31,  69 => 40,  63 => 29,  60 => 28,  56 => 27,  31 => 6,  28 => 3,);
     }
 }

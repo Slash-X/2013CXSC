@@ -1,0 +1,171 @@
+<?php
+
+namespace Slashx\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Publication
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Slashx\AdminBundle\Entity\PublicationRepository")
+ */
+class Publication
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Slashx\AdminBundle\Entity\Papillon")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $papillon;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auteur", type="string", length=255)
+     */
+    private $auteur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="text")
+     */
+    private $reference;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Publication
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+    
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getPapillon()
+    {
+    	return $this->papillon;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param string $auteur
+     * @return Publication
+     */
+    public function setAuteur($auteur)
+    {
+        $this->auteur = $auteur;
+    
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return string 
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Publication
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param string $reference
+     * @return Publication
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return string 
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+}
