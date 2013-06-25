@@ -1,0 +1,50 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION PHOTOGRAPHIE 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Photographie creation</h1>
+
+    <form action="{{ path('photographie_create') }}" method="post" {{ form_enctype(form) }}>
+        
+   <div class="element" style='display: none'>
+	        {{ form_label(form.album) }}
+	        {{ form_errors(form.album) }}
+	        {{ form_widget(form.album) }}
+	    </div>
+	    
+	       
+	    
+	   
+	    	 <div class="element" >
+		        {{ form_label(form.file,'Photo') }}
+		        {{ form_errors(form.file) }}
+		        {{ form_widget(form.file,{ 'attr': {'class': 'text'} }) }}
+	    	</div>
+	    	
+	    	 <div class="element" >
+		        {{ form_label(form.commentaire,'commentaire') }}
+		        {{ form_errors(form.commentaire) }}
+		        {{ form_widget(form.commentaire,{ 'attr': {'class': 'TinyMCE'} }) }}
+	    	</div>
+
+	    	<div class="element" >
+		        {{ form_label(form.ordre,'Ordre') }}
+		        {{ form_errors(form.ordre) }}
+		        {{ form_widget(form.ordre,{ 'attr': {'class': 'text'} }) }}
+	    	</div>
+	    
+	    
+{{ form_widget(form) }}
+
+       <p class="record_actions">
+            <button type="submit" class="add">Enregistrer</button>
+            <a class="button cancel" href="{{ path('photographie', { 'id':id_album }) }}">
+            Retourner à la liste des photographies
+        </a>
+        </p>
+    </form>
+
+{% endblock %}

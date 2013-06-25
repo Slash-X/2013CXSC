@@ -29,7 +29,7 @@ class __TwigTemplate_9cbd93dc0fbc6acc551c905ac4595996 extends Twig_Template
     public function block_block_title($context, array $blocks = array())
     {
         // line 4
-        echo "GESTION DES TYPAGES 
+        echo "GESTION DES TYPES
 ";
     }
 
@@ -37,9 +37,9 @@ class __TwigTemplate_9cbd93dc0fbc6acc551c905ac4595996 extends Twig_Template
     public function block_sub_main($context, array $blocks = array())
     {
         // line 8
-        echo "    <h1>";
+        echo "    <h1>Nom du papillon : \" ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "papillon"), "nom"), "html", null, true);
-        echo "</h1>
+        echo " \"</h1>
 
     <table class=\"records_list\">
         <thead>
@@ -95,16 +95,21 @@ class __TwigTemplate_9cbd93dc0fbc6acc551c905ac4595996 extends Twig_Template
         echo "        </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href=\"";
-        // line 41
+        <p class=\"records_list\">
+            <a class=\"button add\" href=\"";
+        // line 40
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typage_new", array("id" => $this->getAttribute($this->getContext($context, "papillon"), "id"))), "html", null, true);
-        echo "\">
-                Create a new entry
+        echo "\" >
+                Ajouter un nouveau type
             </a>
-        </li>
-    </ul>
+            <a class='button cancel' href=\"";
+        // line 43
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon", array("id" => $this->getAttribute($this->getContext($context, "papillon"), "id"))), "html", null, true);
+        echo "\">
+\t           Retourner à la liste des papillons
+\t        </a>
+            </p>
+       
      \t<p>&nbsp;</p>
     ";
     }
@@ -121,6 +126,6 @@ class __TwigTemplate_9cbd93dc0fbc6acc551c905ac4595996 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  102 => 41,  95 => 36,  83 => 30,  76 => 26,  72 => 25,  68 => 24,  64 => 23,  61 => 22,  57 => 21,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  107 => 43,  101 => 40,  95 => 36,  83 => 30,  76 => 26,  72 => 25,  68 => 24,  64 => 23,  61 => 22,  57 => 21,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

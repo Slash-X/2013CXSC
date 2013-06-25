@@ -22,13 +22,13 @@ class Papillon
     private $id;
     
     /**
-     * @ORM\OneToMany(targetEntity="Slashx\AdminBundle\Entity\Publication", mappedBy="papillon")
+     * @ORM\OneToMany(targetEntity="Slashx\AdminBundle\Entity\Publication", mappedBy="papillon", cascade={"remove"})
      */
     private $publications; 
     
 
     /**
-     * @ORM\OneToMany(targetEntity="Slashx\AdminBundle\Entity\Typage", mappedBy="papillon")
+     * @ORM\OneToMany(targetEntity="Slashx\AdminBundle\Entity\Typage", mappedBy="papillon", cascade={"remove"})
      */
     private $typages; 
     
@@ -123,6 +123,11 @@ class Papillon
      */
     private $couleur;
 
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Slashx\AdminBundle\Entity\Album", cascade={"persist"})
+     */
+    private $album;
 
     /**
      * Get id
@@ -434,4 +439,101 @@ class Papillon
     }
     
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->publications = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->typages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add publications
+     *
+     * @param \Slashx\AdminBundle\Entity\Publication $publications
+     * @return Papillon
+     */
+    public function addPublication(\Slashx\AdminBundle\Entity\Publication $publications)
+    {
+        $this->publications[] = $publications;
+    
+        return $this;
+    }
+
+    /**
+     * Remove publications
+     *
+     * @param \Slashx\AdminBundle\Entity\Publication $publications
+     */
+    public function removePublication(\Slashx\AdminBundle\Entity\Publication $publications)
+    {
+        $this->publications->removeElement($publications);
+    }
+
+    /**
+     * Get publications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPublications()
+    {
+        return $this->publications;
+    }
+
+    /**
+     * Add typages
+     *
+     * @param \Slashx\AdminBundle\Entity\Typage $typages
+     * @return Papillon
+     */
+    public function addTypage(\Slashx\AdminBundle\Entity\Typage $typages)
+    {
+        $this->typages[] = $typages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove typages
+     *
+     * @param \Slashx\AdminBundle\Entity\Typage $typages
+     */
+    public function removeTypage(\Slashx\AdminBundle\Entity\Typage $typages)
+    {
+        $this->typages->removeElement($typages);
+    }
+
+    /**
+     * Get typages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTypages()
+    {
+        return $this->typages;
+    }
+
+    /**
+     * Set album
+     *
+     * @param \Slashx\AdminBundle\Entity\Album $album
+     * @return Papillon
+     */
+    public function setAlbum(\Slashx\AdminBundle\Entity\Album $album = null)
+    {
+        $this->album = $album;
+    
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \Slashx\AdminBundle\Entity\Album 
+     */
+    public function getAlbum()
+    {
+        return $this->album;
+    }
 }

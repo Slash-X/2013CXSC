@@ -47,7 +47,7 @@ class __TwigTemplate_279ec7a67ce10aa254965243901b46c8 extends Twig_Template
                 <th>Nom</th>
                 <th>Auteur</th>
                 <th>Date</th>
-                <th>Reference</th>
+               
                 <th>Actions</th>
             </tr>
         </thead>
@@ -73,10 +73,7 @@ class __TwigTemplate_279ec7a67ce10aa254965243901b46c8 extends Twig_Template
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "date"), "Y-m-d H:i:s"), "html", null, true);
             }
             echo "</td>
-                <td>";
-            // line 26
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "reference"), "html", null, true);
-            echo "</td>
+                
                 <td>
                 <ul>
                     <li>
@@ -97,16 +94,21 @@ class __TwigTemplate_279ec7a67ce10aa254965243901b46c8 extends Twig_Template
         echo "        </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href=\"";
-        // line 41
+       <p class=\"records_list\">
+            <a class=\"button add\" class=\"button\" href=\"";
+        // line 40
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("publication_new", array("id" => $this->getAttribute($this->getContext($context, "papillon"), "id"))), "html", null, true);
         echo "\">
-                Create a new entry
+                Ajouter une nouvelle publication
             </a>
-        </li>
-    </ul>
+               <a class='button cancel' href=\"";
+        // line 43
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon", array("id" => $this->getAttribute($this->getContext($context, "papillon"), "id"))), "html", null, true);
+        echo "\">
+\t           Retourner à la liste des papillons
+\t        </a>
+        </p>
+   
      \t<p>&nbsp;</p>
     ";
     }
@@ -123,6 +125,6 @@ class __TwigTemplate_279ec7a67ce10aa254965243901b46c8 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  104 => 41,  97 => 36,  85 => 30,  78 => 26,  72 => 25,  68 => 24,  64 => 23,  61 => 22,  57 => 21,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  106 => 43,  100 => 40,  94 => 36,  82 => 30,  72 => 25,  68 => 24,  64 => 23,  61 => 22,  57 => 21,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

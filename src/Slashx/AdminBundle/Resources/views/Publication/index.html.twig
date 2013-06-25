@@ -13,7 +13,7 @@ GESTION DES PUBLICATIONS
                 <th>Nom</th>
                 <th>Auteur</th>
                 <th>Date</th>
-                <th>Reference</th>
+               
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,7 +23,7 @@ GESTION DES PUBLICATIONS
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.auteur }}</td>
                 <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.reference }}</td>
+                
                 <td>
                 <ul>
                     <li>
@@ -36,12 +36,14 @@ GESTION DES PUBLICATIONS
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('publication_new', { 'id': papillon.id }) }}">
-                Create a new entry
+       <p class="records_list">
+            <a class="button add" class="button" href="{{ path('publication_new', { 'id': papillon.id }) }}">
+                Ajouter une nouvelle publication
             </a>
-        </li>
-    </ul>
+               <a class='button cancel' href="{{ path('papillon', { 'id':papillon.id }) }}">
+	           Retourner à la liste des papillons
+	        </a>
+        </p>
+   
      	<p>&nbsp;</p>
     {% endblock %}

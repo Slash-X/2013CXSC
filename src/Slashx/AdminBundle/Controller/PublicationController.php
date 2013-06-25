@@ -48,6 +48,7 @@ class PublicationController extends Controller
      */
     public function createAction(Request $request)
     {
+    	
         $entity  = new Publication();
         $form = $this->createForm(new PublicationType(), $entity);
         $form->bind($request);
@@ -141,8 +142,10 @@ class PublicationController extends Controller
 
         $editForm = $this->createForm(new PublicationType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
-
+		$papillon_id = $entity->getPapillon()->getId();
+        
         return array(
+        		'papillon_id' => $papillon_id,
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

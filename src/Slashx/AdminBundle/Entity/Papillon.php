@@ -123,6 +123,11 @@ class Papillon
      */
     private $couleur;
 
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Slashx\AdminBundle\Entity\Album", cascade={"persist"})
+     */
+    private $album;
 
     /**
      * Get id
@@ -507,5 +512,28 @@ class Papillon
     public function getTypages()
     {
         return $this->typages;
+    }
+
+    /**
+     * Set album
+     *
+     * @param \Slashx\AdminBundle\Entity\Album $album
+     * @return Papillon
+     */
+    public function setAlbum(\Slashx\AdminBundle\Entity\Album $album = null)
+    {
+        $this->album = $album;
+    
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return \Slashx\AdminBundle\Entity\Album 
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 }

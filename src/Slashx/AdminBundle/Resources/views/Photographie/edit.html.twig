@@ -1,0 +1,71 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION PHOTOGRAPHIE 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Photographie edit</h1>
+
+    <form action="{{ path('photographie_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+          
+   <div class="element" style='display: none'>
+	        {{ form_label(edit_form.album) }}
+	        {{ form_errors(edit_form.album) }}
+	        {{ form_widget(edit_form.album) }}
+	    </div>
+	    
+	       
+	     <div class='left_area'>
+	    	 <div class="element" >
+		        {{ form_label(edit_form.file,'Photo') }}
+		        {{ form_errors(edit_form.file) }}
+		        {{ form_widget(edit_form.file,{ 'attr': {'class': 'text'} }) }}
+	    	</div>
+	    </div>
+	    
+	    <div class='right_area'>
+	    	<div class="element">
+		       	{% if entity.photo %}
+	    			<img src="{{ asset(entity.getWebPath()) }}" width="60px"/>
+				{% else %}
+				    Pas d'image !
+				{% endif %}
+	    	</div>
+	    </div>
+	    
+	   <div class='clear_area'></div>
+	   
+	    	
+	    	
+	    	 <div class="element" >
+		        {{ form_label(edit_form.commentaire,'commentaire') }}
+		        {{ form_errors(edit_form.commentaire) }}
+		        {{ form_widget(edit_form.commentaire,{ 'attr': {'class': 'TinyMCE'} }) }}
+	    	</div>
+
+	    	<div class="element" >
+		        {{ form_label(edit_form.ordre,'Ordre') }}
+		        {{ form_errors(edit_form.ordre) }}
+		        {{ form_widget(edit_form.ordre,{ 'attr': {'class': 'text'} }) }}
+	    	</div>
+	    
+	    
+{{ form_widget(edit_form) }}
+
+       <p class="record_actions">
+            <button type="submit" class="add">Enregistrer</button>
+            <a class="button cancel" href="{{ path('photographie', { 'id':id_album }) }}">
+            Retourner à la liste des photographies
+        </a>
+        </p>
+    </form>
+
+        <form action="{{ path('photographie_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    
+{% endblock %}

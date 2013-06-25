@@ -1,24 +1,63 @@
 {% extends 'SlashxAdminBundle::layout.html.twig' %}
 
 {% block block_title %}
-GESTION SYSTEMATIQUE 
+GESTION DES TYPES 
 {% endblock %}
 
 {% block sub_main %}
-    <h1>Typage creation</h1>
+    <h1>Creation de Type</h1> 
 
     <form action="{{ path('typage_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
-        </p>
+       
+        
+        
+      <div class="element">
+	        {{ form_label(form.lieuConservation, 'Lieu de conservation') }}
+	        {{ form_errors(form.lieuConservation) }}
+	        {{ form_widget(form.lieuConservation,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    <div class="element">
+	        {{ form_label(form.localite) }}
+	        {{ form_errors(form.localite) }}
+	        {{ form_widget(form.localite,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+
+	    <div class="element">
+	        {{ form_label(form.categorie) }}
+	        {{ form_errors(form.categorie) }}
+	        {{ form_widget(form.categorie,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    	    <div class="element">
+	        {{ form_label(form.sexe) }}
+	        {{ form_errors(form.sexe) }}
+	        {{ form_widget(form.sexe,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    <div class="element" style='display: none'>
+	        {{ form_label(form.papillon) }}
+	        {{ form_errors(form.papillon) }}
+	        {{ form_widget(form.papillon) }}
+	    </div>
+	    
+	   	<div class="element">
+	        {{ form_label(form.file) }}
+	        {{ form_errors(form.file) }}
+	        {{ form_widget(form.file) }}
+	    </div>
+	    <div class="element">
+	     {{ form_widget(form) }}
+	    </div>
+	    
+	    <p class="record_actions">
+	    	<button type="submit" class="add">Enregistrer</button>
+	    	<a  class="button cancel" href="{{ path('typage', { 'id':id }) }}">
+            	Retourner à la liste des types
+        	</a>
+	    </p>
+	       
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('typage', { 'id':id }) }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+      
 {% endblock %}

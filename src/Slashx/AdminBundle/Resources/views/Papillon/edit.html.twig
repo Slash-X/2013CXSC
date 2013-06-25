@@ -9,24 +9,144 @@ GESTION DES TYPAGES
 
     <form action="{{ path('papillon_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
+       <fieldset class='title'>
+    <legend>Titre</legend>
+	<div class="left_area">
+     	<div class="element">
+	        {{ form_label(edit_form.famille) }}
+	        {{ form_errors(edit_form.famille) }}
+	        {{ form_widget(edit_form.famille,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	     <div class="element">
+	        {{ form_label(edit_form.sousEspece, 'Sous-espece') }}
+	        {{ form_errors(edit_form.sousEspece) }}
+	        {{ form_widget(edit_form.sousEspece,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	        
+     	    <div class="element">
+	        {{ form_label(edit_form.auteur, 'Auteur') }}
+	        {{ form_errors(edit_form.auteur) }}
+	        {{ form_widget(edit_form.auteur,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	 
+	   
+	    
+	 </div>
+	    
+	<div class="right_area">
+	   
+   
+	    <div class="element">
+	        {{ form_label(edit_form.espece, 'Espece') }}
+	        {{ form_errors(edit_form.espece) }}
+	        {{ form_widget(edit_form.espece,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    <div class="element">
+	        {{ form_label(edit_form.forme) }}
+	        {{ form_errors(edit_form.forme) }}
+	        {{ form_widget(edit_form.forme,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	 
+	    
+	    <div class="element">
+	        {{ form_label(edit_form.date, 'Sous-espece') }}
+	        {{ form_errors(edit_form.date) }}
+	        {{ form_widget(edit_form.date,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	
+	    
+	  </div>
+	</fieldset>
+
+	<div class="clear_area">
+	
+	<fieldset class='title'>
+    <legend>Sous-Titre</legend>
+     <div class="left_area">
+      <div class="element">
+	        {{ form_label(edit_form.nom) }}
+	        {{ form_errors(edit_form.nom) }}
+	        {{ form_widget(edit_form.nom,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    </div>
+	    
+	    <div class="right_area">
+	   
+	     <div class="element">
+	        {{ form_label(edit_form.statut) }}
+	        {{ form_errors(edit_form.statut) }}
+	        {{ form_widget(edit_form.statut,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    </div>
+	    
+    </fieldset>
+		
+	<div class="clear_area">
+	
+	<fieldset class='title'>
+    <legend>Autres</legend>
+     	<div class="left_area">
+      
+	      	<div class="element">
+		        {{ form_label(edit_form.distributions) }}
+		        {{ form_errors(edit_form.distributions) }}
+		        {{ form_widget(edit_form.distributions,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+		    
+		    	<div class="element">
+		        {{ form_label(edit_form.plantes) }}
+		        {{ form_errors(edit_form.plantes) }}
+		        {{ form_widget(edit_form.plantes,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+	    
+	    </div>
+	    
+	    <div class="right_area">
+	   
+		     <div class="element">
+		        {{ form_label(edit_form.habitats) }}
+		        {{ form_errors(edit_form.habitats) }}
+		        {{ form_widget(edit_form.habitats,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+		    
+		    <div class="element">
+		        {{ form_label(edit_form.premiersEtats, "Premiers-Etats") }}
+		        {{ form_errors(edit_form.premiersEtats) }}
+		        {{ form_widget(edit_form.premiersEtats,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+		    
+		    
+	    
+	    </div>
+	    
+    </fieldset>
+	
+	  <div class="element">
+		        {{ form_label(edit_form.couleur) }}
+		        {{ form_errors(edit_form.couleur) }}
+		        {{ form_widget(edit_form.couleur) }}
+		    </div>
+		    
+		    
         {{ form_widget(edit_form) }}
-        <p>
-            <button type="submit">Edit</button>
+        <p class="record_actions">
+	    	<button type="submit" class="add">Enregistrer</button>
+		   <a class="cancel button" href="{{ path('papillon') }}">
+		            Retourner à la liste des papillons
+		        </a>
         </p>
+        
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('papillon') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
         <form action="{{ path('papillon_delete', { 'id': entity.id }) }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>
-    </li>
-</ul>
+   
 {% endblock %}

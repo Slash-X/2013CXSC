@@ -37,8 +37,7 @@ class __TwigTemplate_dbdd638cb4d0d8e32d4f954cf44b1b46 extends Twig_Template
     public function block_sub_main($context, array $blocks = array())
     {
         // line 8
-        echo "\t<p> Test </p>
-    <table class=\"records_list\">
+        echo "\t<table class=\"records_list\">
         <thead>
             <tr>
                 <th>Famille</th>
@@ -51,49 +50,49 @@ class __TwigTemplate_dbdd638cb4d0d8e32d4f954cf44b1b46 extends Twig_Template
         </thead>
         <tbody>
         ";
-        // line 21
+        // line 20
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 22
+            // line 21
             echo "            <tr>
                 <td>";
-            // line 23
+            // line 22
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "famille"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 24
+            // line 23
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "espece"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 25
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "sousEspece"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 26
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "forme"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 27
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "auteur"), "html", null, true);
             echo "</td>
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 31
+            // line 30
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">Modifier</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 34
+            // line 33
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typage", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">Typage</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 37
+            // line 36
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("publication", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">Publication</a>
                     </li>
@@ -105,20 +104,18 @@ class __TwigTemplate_dbdd638cb4d0d8e32d4f954cf44b1b46 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 43
+        // line 42
         echo "        </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href=\"";
-        // line 48
+        <p>
+            <a class='button add' href=\"";
+        // line 46
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon_new"), "html", null, true);
         echo "\">
-                Create a new entry
+                Ajouter un nouveau papillon
             </a>
-        </li>
-    \t</ul>
+        </p>
     \t<p>&nbsp;</p>
     ";
     }
@@ -135,6 +132,6 @@ class __TwigTemplate_dbdd638cb4d0d8e32d4f954cf44b1b46 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  116 => 48,  109 => 43,  97 => 37,  91 => 34,  85 => 31,  78 => 27,  74 => 26,  70 => 25,  66 => 24,  62 => 23,  59 => 22,  55 => 21,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  114 => 46,  108 => 42,  96 => 36,  90 => 33,  84 => 30,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

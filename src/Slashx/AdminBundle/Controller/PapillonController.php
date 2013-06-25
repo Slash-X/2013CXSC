@@ -154,6 +154,7 @@ class PapillonController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+        	
             $em->persist($entity);
             $em->flush();
 

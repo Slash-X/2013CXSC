@@ -29,7 +29,7 @@ class __TwigTemplate_5883b13af4821f24c5a1a40df1f6b634 extends Twig_Template
     public function block_block_title($context, array $blocks = array())
     {
         // line 4
-        echo "GESTION SYSTEMATIQUE 
+        echo "GESTION DES TYPES 
 ";
     }
 
@@ -37,7 +37,7 @@ class __TwigTemplate_5883b13af4821f24c5a1a40df1f6b634 extends Twig_Template
     public function block_sub_main($context, array $blocks = array())
     {
         // line 8
-        echo "    <h1>Typage creation</h1>
+        echo "    <h1>Creation de Type</h1> 
 
     <form action=\"";
         // line 10
@@ -45,25 +45,118 @@ class __TwigTemplate_5883b13af4821f24c5a1a40df1f6b634 extends Twig_Template
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo ">
-        ";
-        // line 11
+       
+        
+        
+      <div class=\"element\">
+\t        ";
+        // line 15
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "lieuConservation"), 'label', array("label" => "Lieu de conservation"));
+        echo "
+\t        ";
+        // line 16
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "lieuConservation"), 'errors');
+        echo "
+\t        ";
+        // line 17
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "lieuConservation"), 'widget', array("attr" => array("class" => "text")));
+        echo "
+\t    </div>
+\t    
+\t    <div class=\"element\">
+\t        ";
+        // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "localite"), 'label');
+        echo "
+\t        ";
+        // line 22
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "localite"), 'errors');
+        echo "
+\t        ";
+        // line 23
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "localite"), 'widget', array("attr" => array("class" => "text")));
+        echo "
+\t    </div>
+
+\t    <div class=\"element\">
+\t        ";
+        // line 27
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "categorie"), 'label');
+        echo "
+\t        ";
+        // line 28
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "categorie"), 'errors');
+        echo "
+\t        ";
+        // line 29
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "categorie"), 'widget', array("attr" => array("class" => "text")));
+        echo "
+\t    </div>
+\t    
+\t    \t    <div class=\"element\">
+\t        ";
+        // line 33
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "sexe"), 'label');
+        echo "
+\t        ";
+        // line 34
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "sexe"), 'errors');
+        echo "
+\t        ";
+        // line 35
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "sexe"), 'widget', array("attr" => array("class" => "text")));
+        echo "
+\t    </div>
+\t    
+\t    <div class=\"element\" style='display: none'>
+\t        ";
+        // line 39
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "papillon"), 'label');
+        echo "
+\t        ";
+        // line 40
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "papillon"), 'errors');
+        echo "
+\t        ";
+        // line 41
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "papillon"), 'widget');
+        echo "
+\t    </div>
+\t    
+\t   \t<div class=\"element\">
+\t        ";
+        // line 45
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "file"), 'label');
+        echo "
+\t        ";
+        // line 46
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "file"), 'errors');
+        echo "
+\t        ";
+        // line 47
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "file"), 'widget');
+        echo "
+\t    </div>
+\t    <div class=\"element\">
+\t     ";
+        // line 50
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'widget');
         echo "
-        <p>
-            <button type=\"submit\">Create</button>
-        </p>
-    </form>
-
-        <ul class=\"record_actions\">
-    <li>
-        <a href=\"";
-        // line 19
+\t    </div>
+\t    
+\t    <p class=\"record_actions\">
+\t    \t<button type=\"submit\" class=\"add\">Enregistrer</button>
+\t    \t<a  class=\"button cancel\" href=\"";
+        // line 55
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typage", array("id" => $this->getContext($context, "id"))), "html", null, true);
         echo "\">
-            Back to the list
-        </a>
-    </li>
-</ul>
+            \tRetourner à la liste des types
+        \t</a>
+\t    </p>
+\t       
+    </form>
+
+      
 ";
     }
 
@@ -79,6 +172,6 @@ class __TwigTemplate_5883b13af4821f24c5a1a40df1f6b634 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  61 => 19,  50 => 11,  44 => 10,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  151 => 55,  143 => 50,  137 => 47,  133 => 46,  129 => 45,  122 => 41,  118 => 40,  114 => 39,  107 => 35,  103 => 34,  99 => 33,  92 => 29,  88 => 28,  84 => 27,  77 => 23,  73 => 22,  69 => 21,  62 => 17,  58 => 16,  54 => 15,  44 => 10,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

@@ -1,0 +1,54 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION PHOTOGRAPHIE 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Photographie list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+               
+                <th>Photo</th>
+                <th>Commentaire</th>
+                <th>Ordre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+               
+                <td>{% if entity.photo %}
+	    			<img src="{{ asset(entity.getWebPath()) }}" width="60px"/>
+				{% else %}
+				    Pas d'image !
+				{% endif %}</td>
+                <td>{{ entity.commentaire }}</td>
+                <td>{{ entity.ordre }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('photographie_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('photographie_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+      
+    
+       <p>
+            <a class='button add' href="{{ path('photographie_new', { 'id': album.id }) }}">
+                Ajouter une photo dans l'album
+            </a>
+        </p>
+    	<p>&nbsp;</p>
+    {% endblock %}

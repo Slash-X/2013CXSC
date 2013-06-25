@@ -23,9 +23,10 @@ class TypageType extends AbstractType
             ->add('localite')
             ->add('categorie')
             ->add('sexe')
+            ->add('file')
             ->add('papillon','entity',array(
              		'class'=>"SlashxAdminBundle:Papillon",
-           		'property'=>'id',
+           		'property'=>'nom',
         ))
         ;
     }

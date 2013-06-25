@@ -22,11 +22,15 @@ class PublicationType extends AbstractType
         $builder
             ->add('nom')
             ->add('auteur')
-            ->add('date')
-            ->add('reference')
-           ->add('papillon','entity',array(
-             		'class'=>"SlashxAdminBundle:Papillon",
-           		'property'=>'id',
+//             ->add('date', 'choice',
+//                     array(
+//                         'required' => true, 'choices' => $this->buildYearChoices()
+//                     ))
+        ->add('date')
+            ->add('reference', 'textarea',array('required' => false))
+           	->add('papillon','entity',array(
+             	'class'=>"SlashxAdminBundle:Papillon",
+           		'property'=>'nom',
         ))
 //             ->add('papillon')
         ;
@@ -42,5 +46,12 @@ class PublicationType extends AbstractType
     public function getName()
     {
         return 'slashx_adminbundle_publicationtype';
+    }
+    
+    public function buildYearChoices() {
+    	$distance = 20;
+    	$yearsBefore = date('Y', mktime(0, 0, 0, date("m"), date("d"), date("Y") - $distance));
+    	$yearsAfter = date('Y', mktime(0, 0, 0, date("m"), date("d"), date("Y") + ceil($distance/2)));
+    	return array_combine(range($yearsBefore, $yearsAfter), range($yearsBefore, $yearsAfter));
     }
 }

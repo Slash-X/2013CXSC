@@ -1,0 +1,41 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION DES TYPES 
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Album edit</h1>
+
+    <form action="{{ path('album_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+         <div class="element">
+	        {{ form_label(edit_form.titre, 'Titre') }}
+	        {{ form_errors(edit_form.titre) }}
+	        {{ form_widget(edit_form.titre,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	      <div class="element">
+	        {{ form_label(edit_form.papillon, 'Titre') }}
+	        {{ form_errors(edit_form.papillon) }}
+	        {{ form_widget(edit_form.papillon) }}
+	    </div>
+	    
+        {{ form_widget(edit_form) }}
+      
+        
+        <p class="record_actions">
+	    	<button type="submit" class="add">Enregistrer</button>
+	    	<a  class="button cancel" href="{{ path('album') }}">
+            	Retourner à la liste des albums
+        	</a>
+	    </p>
+	    </form>
+	    
+        <form action="{{ path('album_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    
+{% endblock %}

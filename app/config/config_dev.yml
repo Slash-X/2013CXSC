@@ -6,7 +6,7 @@ framework:
     profiler: { only_exceptions: false }
 
 web_profiler:
-    toolbar: true
+    #/Applications/MAMP/htdocs/charaxes/app/config/config.ymltoolbar: true
     intercept_redirects: false
 
 monolog:

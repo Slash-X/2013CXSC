@@ -54,6 +54,16 @@ class Typage
      * @ORM\Column(name="sexe", type="string", length=255)
      */
     private $sexe;
+    
+    
+   /**
+     * @var string
+     *
+     * @ORM\Column(name="picture", type="string", length=255)
+     */
+    private $picture;
+    
+    
 
 
     /**
@@ -156,5 +166,81 @@ class Typage
     public function getSexe()
     {
         return $this->sexe;
+    }
+
+    /**
+     * Set papillon
+     *
+     * @param \Slashx\AdminBundle\Entity\Papillon $papillon
+     * @return Typage
+     */
+    public function setPapillon(\Slashx\AdminBundle\Entity\Papillon $papillon)
+    {
+        $this->papillon = $papillon;
+    
+        return $this;
+    }
+
+    /**
+     * Get papillon
+     *
+     * @return \Slashx\AdminBundle\Entity\Papillon 
+     */
+    public function getPapillon()
+    {
+        return $this->papillon;
+    }
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $path;
+    
+    public function getAbsolutePath()
+    {
+    	return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+    
+    public function getWebPath()
+    {
+    	return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
+    }
+    
+    protected function getUploadRootDir()
+    {
+    	// le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+    	return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+    
+    protected function getUploadDir()
+    {
+    	// on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+    	// le document/image dans la vue.
+    	return 'uploads/documents';
+    }
+
+   
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Typage
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }

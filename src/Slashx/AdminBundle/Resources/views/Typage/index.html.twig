@@ -1,11 +1,11 @@
 {% extends 'SlashxAdminBundle::layout.html.twig' %}
 
 {% block block_title %}
-GESTION DES TYPAGES 
+GESTION DES TYPES
 {% endblock %}
 
 {% block sub_main %}
-    <h1>{{ papillon.nom }}</h1>
+    <h1>Nom du papillon : " {{ papillon.nom }} "</h1>
 
     <table class="records_list">
         <thead>
@@ -36,12 +36,14 @@ GESTION DES TYPAGES
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('typage_new', { 'id': papillon.id }) }}">
-                Create a new entry
+        <p class="records_list">
+            <a class="button add" href="{{ path('typage_new', { 'id': papillon.id }) }}" >
+                Ajouter un nouveau type
             </a>
-        </li>
-    </ul>
+            <a class='button cancel' href="{{ path('papillon', { 'id':papillon.id }) }}">
+	           Retourner à la liste des papillons
+	        </a>
+            </p>
+       
      	<p>&nbsp;</p>
     {% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION DES TYPES
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Album list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+              
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                
+                <td>{{ entity.titre }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('album_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('photographie', { 'id': entity.id }) }}">photo</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="records_list">
+        
+	            <a class='button add' href="{{ path('album_new') }}">
+	                Ajouter un nouvel album
+	                </a>
+	          
+    </p>
+    
+    <p>&nbsp;</p>
+    {% endblock %}

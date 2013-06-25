@@ -26,20 +26,21 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
 <head>
 <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
 <meta name=\"author\" content=\"Paweł 'kilab' Balicki - kilab.pl\" />
+
 <title>";
-        // line 6
+        // line 7
         $this->displayBlock('title', $context, $blocks);
         echo " - symblog</title>
 
         ";
-        // line 8
+        // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
+        // line 14
         echo "
         ";
-        // line 13
+        // line 15
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 16
+        // line 26
         echo "        
 <script type=\"text/javascript\">
 \$(function(){
@@ -65,9 +66,9 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
 \t\t</div>
 \t\t
 \t\t";
-        // line 40
+        // line 50
         $this->displayBlock('navigation_hz', $context, $blocks);
-        // line 42
+        // line 52
         echo "\t</div>
 \t
 \t<div id=\"content\">
@@ -88,9 +89,9 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
 \t\t<div class=\"clear\"></div>
 
 \t\t";
-        // line 61
+        // line 71
         $this->displayBlock('main', $context, $blocks);
-        // line 64
+        // line 74
         echo "\t\t
 \t\t</div>
 
@@ -101,44 +102,56 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
 ";
     }
 
-    // line 6
+    // line 7
     public function block_title($context, array $blocks = array())
     {
         echo "Mon titre";
     }
 
-    // line 8
+    // line 9
     public function block_stylesheets($context, array $blocks = array())
     {
-        // line 9
+        // line 10
         echo "            <link href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/css/styleCustom.css"), "html", null, true);
+        echo "\" type=\"text/css\" rel=\"stylesheet\" />
+            <link href=\"";
+        // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/css/style.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
             <link href=\"";
-        // line 10
+        // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/css/navi.css"), "html", null, true);
         echo "\" type=\"text/css\" rel=\"stylesheet\" />
         ";
     }
 
-    // line 13
+    // line 15
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 14
+        // line 16
         echo "        \t<script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/slashxadmin/js/jquery-1.7.2.min.js"), "html", null, true);
         echo "\"></script>
+        \t<script src=\"//tinymce.cachefly.net/4.0/tinymce.min.js\"></script>
+\t\t\t<script type=\"text/javascript\">
+\t\t\t
+\t\t\ttinymce.init({
+\t\t\t    selector: \"textarea.TinyMCE\",
+\t\t\t    height : 150
+\t\t\t });
+</script>
         ";
     }
 
-    // line 40
+    // line 50
     public function block_navigation_hz($context, array $blocks = array())
     {
-        // line 41
+        // line 51
         echo "\t\t";
     }
 
-    // line 61
+    // line 71
     public function block_main($context, array $blocks = array())
     {
         echo "\t
@@ -153,6 +166,6 @@ class __TwigTemplate_bf2449af0d6828df12605b2f7dd1d266 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  142 => 61,  138 => 41,  135 => 40,  128 => 14,  125 => 13,  114 => 9,  105 => 6,  94 => 64,  92 => 61,  71 => 42,  43 => 16,  41 => 13,  38 => 12,  36 => 8,  24 => 1,  151 => 60,  144 => 55,  132 => 49,  126 => 46,  119 => 10,  115 => 41,  111 => 8,  107 => 39,  103 => 38,  99 => 37,  95 => 36,  89 => 35,  85 => 34,  81 => 33,  77 => 32,  73 => 31,  69 => 40,  63 => 29,  60 => 28,  56 => 27,  31 => 6,  28 => 3,);
+        return array (  155 => 71,  151 => 51,  148 => 50,  133 => 16,  130 => 15,  124 => 12,  120 => 11,  115 => 10,  112 => 9,  106 => 7,  95 => 74,  93 => 71,  72 => 52,  70 => 50,  44 => 26,  42 => 15,  39 => 14,  37 => 9,  32 => 7,  24 => 1,);
     }
 }

@@ -34,6 +34,90 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PageController::indexAction',  '_route' => 'SlashxAdminBundle_index',);
         }
 
+        if (0 === strpos($pathinfo, '/album')) {
+            // album
+            if (rtrim($pathinfo, '/') === '/album') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_album;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'album');
+                }
+
+                return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::indexAction',  '_route' => 'album',);
+            }
+            not_album:
+
+            // album_create
+            if ($pathinfo === '/album/') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_album_create;
+                }
+
+                return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::createAction',  '_route' => 'album_create',);
+            }
+            not_album_create:
+
+            // album_new
+            if ($pathinfo === '/album/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_album_new;
+                }
+
+                return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::newAction',  '_route' => 'album_new',);
+            }
+            not_album_new:
+
+            // album_show
+            if (preg_match('#^/album/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_album_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'album_show')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::showAction',));
+            }
+            not_album_show:
+
+            // album_edit
+            if (preg_match('#^/album/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_album_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'album_edit')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::editAction',));
+            }
+            not_album_edit:
+
+            // album_update
+            if (preg_match('#^/album/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'PUT') {
+                    $allow[] = 'PUT';
+                    goto not_album_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'album_update')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::updateAction',));
+            }
+            not_album_update:
+
+            // album_delete
+            if (preg_match('#^/album/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_album_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'album_delete')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\AlbumController::deleteAction',));
+            }
+            not_album_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/p')) {
             if (0 === strpos($pathinfo, '/papillon')) {
                 // papillon
@@ -116,6 +200,90 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'papillon_delete')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PapillonController::deleteAction',));
                 }
                 not_papillon_delete:
+
+            }
+
+            if (0 === strpos($pathinfo, '/photographie')) {
+                // photographie
+                if (rtrim($pathinfo, '/') === '/photographie') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_photographie;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'photographie');
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::indexAction',  '_route' => 'photographie',);
+                }
+                not_photographie:
+
+                // photographie_create
+                if ($pathinfo === '/photographie/') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_photographie_create;
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::createAction',  '_route' => 'photographie_create',);
+                }
+                not_photographie_create:
+
+                // photographie_new
+                if ($pathinfo === '/photographie/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_photographie_new;
+                    }
+
+                    return array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::newAction',  '_route' => 'photographie_new',);
+                }
+                not_photographie_new:
+
+                // photographie_show
+                if (preg_match('#^/photographie/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_photographie_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'photographie_show')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::showAction',));
+                }
+                not_photographie_show:
+
+                // photographie_edit
+                if (preg_match('#^/photographie/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_photographie_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'photographie_edit')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::editAction',));
+                }
+                not_photographie_edit:
+
+                // photographie_update
+                if (preg_match('#^/photographie/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'PUT') {
+                        $allow[] = 'PUT';
+                        goto not_photographie_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'photographie_update')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::updateAction',));
+                }
+                not_photographie_update:
+
+                // photographie_delete
+                if (preg_match('#^/photographie/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_photographie_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'photographie_delete')), array (  '_controller' => 'Slashx\\AdminBundle\\Controller\\PhotographieController::deleteAction',));
+                }
+                not_photographie_delete:
 
             }
 

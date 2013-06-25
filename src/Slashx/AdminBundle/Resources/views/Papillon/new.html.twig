@@ -5,20 +5,143 @@ GESTION SYSTEMATIQUE
 {% endblock %}
 
 {% block sub_main %}
-    <h1>Papillon creation</h1>
+    <h1>Formulaire de création d'un papillon</h1>
 
     <form action="{{ path('papillon_create') }}" method="post" {{ form_enctype(form) }}>
+    
+    <fieldset class='title'>
+    <legend>Titre</legend>
+	<div class="left_area">
+     	<div class="element">
+	        {{ form_label(form.famille) }}
+	        {{ form_errors(form.famille) }}
+	        {{ form_widget(form.famille,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	     <div class="element">
+	        {{ form_label(form.sousEspece, 'Sous-espece') }}
+	        {{ form_errors(form.sousEspece) }}
+	        {{ form_widget(form.sousEspece,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	        
+     	    <div class="element">
+	        {{ form_label(form.auteur, 'Auteur') }}
+	        {{ form_errors(form.auteur) }}
+	        {{ form_widget(form.auteur,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	 
+	   
+	    
+	 </div>
+	    
+	<div class="right_area">
+	   
+   
+	    <div class="element">
+	        {{ form_label(form.espece, 'Espece') }}
+	        {{ form_errors(form.espece) }}
+	        {{ form_widget(form.espece,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    <div class="element">
+	        {{ form_label(form.forme) }}
+	        {{ form_errors(form.forme) }}
+	        {{ form_widget(form.forme,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	 
+	    
+	    <div class="element">
+	        {{ form_label(form.date, 'Sous-espece') }}
+	        {{ form_errors(form.date) }}
+	        {{ form_widget(form.date,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	
+	    
+	  </div>
+	</fieldset>
+
+	<div class="clear_area">
+	
+	<fieldset class='title'>
+    <legend>Sous-Titre</legend>
+     <div class="left_area">
+      <div class="element">
+	        {{ form_label(form.nom) }}
+	        {{ form_errors(form.nom) }}
+	        {{ form_widget(form.nom,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    </div>
+	    
+	    <div class="right_area">
+	   
+	     <div class="element">
+	        {{ form_label(form.statut) }}
+	        {{ form_errors(form.statut) }}
+	        {{ form_widget(form.statut,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    </div>
+	    
+    </fieldset>
+		
+	<div class="clear_area">
+	
+	<fieldset class='title'>
+    <legend>Autres</legend>
+     	<div class="left_area">
+      
+	      	<div class="element">
+		        {{ form_label(form.distributions) }}
+		        {{ form_errors(form.distributions) }}
+		        {{ form_widget(form.distributions,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+		    
+		    	<div class="element">
+		        {{ form_label(form.plantes) }}
+		        {{ form_errors(form.plantes) }}
+		        {{ form_widget(form.plantes,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+	    
+	    </div>
+	    
+	    <div class="right_area">
+	   
+		     <div class="element">
+		        {{ form_label(form.habitats) }}
+		        {{ form_errors(form.habitats) }}
+		        {{ form_widget(form.habitats,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+		    
+		    <div class="element">
+		        {{ form_label(form.premiersEtats, "Premiers-Etats") }}
+		        {{ form_errors(form.premiersEtats) }}
+		        {{ form_widget(form.premiersEtats,{ 'attr': {'class': 'text'} }) }}
+		    </div>
+		    
+		    
+	    
+	    </div>
+	    
+    </fieldset>
+	
+	  <div class="element">
+		        {{ form_label(form.couleur) }}
+		        {{ form_errors(form.couleur) }}
+		        {{ form_widget(form.couleur) }}
+		    </div>
+		    
+		    
         {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
+        <p class="record_actions">
+	    	<button type="submit" class="add">Enregistrer</button>
+		   <a class="cancel button" href="{{ path('papillon') }}">
+		            Retourner à la liste des papillons
+		        </a>
         </p>
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('papillon') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+       
+   
 {% endblock %}

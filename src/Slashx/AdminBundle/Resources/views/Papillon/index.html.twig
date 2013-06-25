@@ -5,8 +5,7 @@ GESTION SYSTEMATIQUE
 {% endblock %}
 
 {% block sub_main %}
-	<p> Test </p>
-    <table class="records_list">
+	<table class="records_list">
         <thead>
             <tr>
                 <th>Famille</th>
@@ -43,12 +42,10 @@ GESTION SYSTEMATIQUE
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('papillon_new') }}">
-                Create a new entry
+        <p>
+            <a class='button add' href="{{ path('papillon_new') }}">
+                Ajouter un nouveau papillon
             </a>
-        </li>
-    	</ul>
+        </p>
     	<p>&nbsp;</p>
     {% endblock %}

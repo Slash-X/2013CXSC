@@ -1,24 +1,47 @@
 {% extends 'SlashxAdminBundle::layout.html.twig' %}
 
 {% block block_title %}
-GESTION SYSTEMATIQUE 
+AJOUTER UNE PUBLICATION 
 {% endblock %}
 
 {% block sub_main %}
-    <h1>Publication creation</h1>
+	<h2>Ajouter une publication</h2>
+   	<p>Veuillez utiliser le formulaire ci-dessous pour ajouter une publication.</p>
 
     <form action="{{ path('publication_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Create</button>
-        </p>
+
+	    <div class="element">
+	        {{ form_label(form.nom) }}
+	        {{ form_errors(form.nom) }}
+	        {{ form_widget(form.nom,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    <div class="element">
+	        {{ form_label(form.auteur) }}
+	        {{ form_errors(form.auteur) }}
+	        {{ form_widget(form.auteur,{ 'attr': {'class': 'text'} }) }}
+	    </div>	    
+	   	<div class="element">
+	        {{ form_label(form.date) }}
+	        {{ form_errors(form.date) }}
+	        {{ form_widget(form.date) }}
+	    </div>
+	   	<div class="element">
+	        {{ form_label(form.reference) }}
+	        {{ form_errors(form.reference) }}
+	        {{ form_widget(form.reference,{ 'attr': {'class': 'TinyMCE'} }) }}
+	        
+	    </div>
+	    <div class="element"> 
+	     {{ form_rest(form) }}
+	    </div>
+	  
+
+        <p class='element'>
+            <button type="submit" class="add">Enregistrer</button>  
+	        <a class='button cancel' href="{{ path('publication', { 'id':id }) }}">
+	           Retourner à la liste des publications
+	        </a>
+    	</p>
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('publication', { 'id':id }) }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}

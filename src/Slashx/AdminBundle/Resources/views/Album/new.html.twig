@@ -1,0 +1,36 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block block_title %}
+GESTION DES TYPES
+{% endblock %}
+
+{% block sub_main %}
+    <h1>Album creation</h1>
+
+    <form action="{{ path('album_create') }}" method="post" {{ form_enctype(form) }}>
+        
+      <div class="element">
+	        {{ form_label(form.titre, 'Titre') }}
+	        {{ form_errors(form.titre) }}
+	        {{ form_widget(form.titre,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	    <div class="element">
+	        {{ form_label(form.papillon, 'Papillon') }}
+	        {{ form_errors(form.papillon) }}
+	        {{ form_widget(form.papillon) }}
+	    </div>
+        {{ form_widget(form) }}
+      
+        
+        <p class="record_actions">
+	    	<button type="submit" class="add">Enregistrer</button>
+	    	<a  class="button cancel" href="{{ path('album') }}">
+            	Retourner à la liste des albums
+        	</a>
+	    </p>
+	    
+	    
+    </form>
+	
+{% endblock %}

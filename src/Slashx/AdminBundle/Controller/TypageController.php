@@ -56,6 +56,7 @@ class TypageController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
+        	$entity->uploadProfilePicture();
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -142,10 +143,12 @@ class TypageController extends Controller
 
         $editForm = $this->createForm(new TypageType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
+        $papillon_id = $entity->getPapillon()->getId();
         
         
 
         return array(
+        		'papillon_id'=>  $papillon_id,
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -174,6 +177,8 @@ class TypageController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+        	if (trim($entity->file)!="")
+        	$entity->uploadProfilePicture();
             $em->persist($entity);
             $em->flush();
 
