@@ -11,6 +11,7 @@ class PapillonType extends AbstractType {
 				->add('sousEspece', 'text', array('required' => false))
 				->add('forme', 'text', array('required' => false))
 				->add('auteur')->add('date')->add('nom')->add('statut')
+			
 				->add('distributions', 'choice',
 						array('multiple' => true,
 								'choices' => array('Cameroun' => 'Cameroun',

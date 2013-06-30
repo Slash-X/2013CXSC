@@ -125,7 +125,7 @@ class Papillon
 
     
     /**
-     * @ORM\OneToOne(targetEntity="Slashx\AdminBundle\Entity\Album", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Slashx\AdminBundle\Entity\Album",cascade={"persist"})
      */
     private $album;
 

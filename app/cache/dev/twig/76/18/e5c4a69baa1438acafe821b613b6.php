@@ -56,11 +56,11 @@ class __TwigTemplate_7618e5c4a69baa1438acafe821b613b6 extends Twig_Template
 \t<div id=\"header\">
 \t\t<div id=\"top\">
 \t\t\t<div class=\"left\">
-\t\t\t\t<p>Welcome, <strong>Paweł B.</strong> [ <a href=\"\">logout</a> ]</p>
+<h1>CHARAXES.BE : ADMINISTRATION</h1>
 \t\t\t</div>
 \t\t\t<div class=\"right\">
 \t\t\t\t<div class=\"align-right\">
-\t\t\t\t\t<p>Last login: <strong>23-04-2012 23:12</strong></p>
+\t\t\t\t\t
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
@@ -72,26 +72,15 @@ class __TwigTemplate_7618e5c4a69baa1438acafe821b613b6 extends Twig_Template
         echo "\t</div>
 \t
 \t<div id=\"content\">
-\t\t<div id=\"sidebar\">
-\t\t\t<div class=\"box\">
-\t\t\t\t<div class=\"h_title\">&#8250; Main control</div>
-\t\t\t\t<ul>
-\t\t\t\t\t<li class=\"b1\"><a class=\"icon view_page\" href=\"\">Visit site</a></li>
-\t\t\t\t\t<li class=\"b2\"><a class=\"icon report\" href=\"\">Reports</a></li>
-\t\t\t\t\t<li class=\"b1\"><a class=\"icon add_page\" href=\"\">Add new page</a></li>
-\t\t\t\t\t<li class=\"b2\"><a class=\"icon config\" href=\"\">Site config</a></li>
-\t\t\t\t</ul>
-\t\t\t</div>
-\t\t\t
-\t\t</div>
+\t
 \t\t
 \t\t<div id=\"main\">
 \t\t<div class=\"clear\"></div>
 
 \t\t";
-        // line 71
+        // line 60
         $this->displayBlock('main', $context, $blocks);
-        // line 74
+        // line 63
         echo "\t\t
 \t\t</div>
 
@@ -151,7 +140,7 @@ class __TwigTemplate_7618e5c4a69baa1438acafe821b613b6 extends Twig_Template
         echo "\t\t";
     }
 
-    // line 71
+    // line 60
     public function block_main($context, array $blocks = array())
     {
         echo "\t
@@ -166,6 +155,6 @@ class __TwigTemplate_7618e5c4a69baa1438acafe821b613b6 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  155 => 71,  151 => 51,  148 => 50,  133 => 16,  130 => 15,  124 => 12,  120 => 11,  115 => 10,  112 => 9,  106 => 7,  95 => 74,  72 => 52,  70 => 50,  44 => 26,  42 => 15,  39 => 14,  24 => 1,  102 => 46,  99 => 45,  93 => 71,  87 => 47,  85 => 45,  81 => 44,  78 => 43,  75 => 42,  48 => 17,  34 => 5,  31 => 4,  114 => 46,  108 => 42,  96 => 36,  90 => 33,  84 => 30,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  40 => 8,  37 => 9,  32 => 7,  29 => 3,);
+        return array (  144 => 60,  140 => 51,  137 => 50,  122 => 16,  119 => 15,  113 => 12,  109 => 11,  104 => 10,  101 => 9,  95 => 7,  84 => 63,  82 => 60,  72 => 52,  70 => 50,  44 => 26,  42 => 15,  39 => 14,  37 => 9,  32 => 7,  24 => 1,);
     }
 }

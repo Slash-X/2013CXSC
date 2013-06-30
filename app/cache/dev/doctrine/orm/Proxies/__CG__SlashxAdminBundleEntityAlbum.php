@@ -81,10 +81,34 @@ class Album extends \Slashx\AdminBundle\Entity\Album implements \Doctrine\ORM\Pr
         return parent::getPhotographies();
     }
 
+    public function setCategorie($categorie)
+    {
+        $this->__load();
+        return parent::setCategorie($categorie);
+    }
+
+    public function getCategorie()
+    {
+        $this->__load();
+        return parent::getCategorie();
+    }
+
+    public function setSousCategorie($sousCategorie)
+    {
+        $this->__load();
+        return parent::setSousCategorie($sousCategorie);
+    }
+
+    public function getSousCategorie()
+    {
+        $this->__load();
+        return parent::getSousCategorie();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'titre', 'photographies');
+        return array('__isInitialized__', 'id', 'titre', 'categorie', 'sousCategorie', 'photographies');
     }
 
     public function __clone()

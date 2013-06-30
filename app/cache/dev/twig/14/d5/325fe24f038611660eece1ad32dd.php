@@ -11,6 +11,7 @@ class __TwigTemplate_14d5325fe24f038611660eece1ad32dd extends Twig_Template
 
         $this->blocks = array(
             'block_title' => array($this, 'block_block_title'),
+            'block_description' => array($this, 'block_block_description'),
             'sub_main' => array($this, 'block_sub_main'),
         );
     }
@@ -29,14 +30,22 @@ class __TwigTemplate_14d5325fe24f038611660eece1ad32dd extends Twig_Template
     public function block_block_title($context, array $blocks = array())
     {
         // line 4
-        echo "GESTION SYSTEMATIQUE 
+        echo "GESTION DE LA SYSTEMATIQUE 
 ";
     }
 
-    // line 7
+    // line 8
+    public function block_block_description($context, array $blocks = array())
+    {
+        // line 9
+        echo "Ce module permet de gérer toute la partie systématique du site.
+";
+    }
+
+    // line 13
     public function block_sub_main($context, array $blocks = array())
     {
-        // line 8
+        // line 14
         echo "\t<table class=\"records_list\">
         <thead>
             <tr>
@@ -50,51 +59,57 @@ class __TwigTemplate_14d5325fe24f038611660eece1ad32dd extends Twig_Template
         </thead>
         <tbody>
         ";
-        // line 20
+        // line 26
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 21
+            // line 27
             echo "            <tr>
                 <td>";
-            // line 22
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "famille"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 23
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "espece"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 24
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sousEspece"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 25
+            // line 31
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "forme"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 26
+            // line 32
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "auteur"), "html", null, true);
             echo "</td>
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 30
+            // line 36
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">Modifier</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 33
+            // line 39
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typage", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">Typage</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 36
+            // line 42
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("publication", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">Publication</a>
+                    </li>
+                      <li>
+                        <a href=\"";
+            // line 45
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("album", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+            echo "\">Album</a>
                     </li>
                 </ul>
                 </td>
@@ -104,13 +119,13 @@ class __TwigTemplate_14d5325fe24f038611660eece1ad32dd extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 42
+        // line 51
         echo "        </tbody>
     </table>
 
         <p>
             <a class='button add' href=\"";
-        // line 46
+        // line 55
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon_new"), "html", null, true);
         echo "\">
                 Ajouter un nouveau papillon
@@ -132,6 +147,6 @@ class __TwigTemplate_14d5325fe24f038611660eece1ad32dd extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  114 => 46,  108 => 42,  96 => 36,  90 => 33,  84 => 30,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  129 => 55,  123 => 51,  111 => 45,  105 => 42,  99 => 39,  93 => 36,  86 => 32,  82 => 31,  78 => 30,  74 => 29,  70 => 28,  67 => 27,  63 => 26,  49 => 14,  46 => 13,  41 => 9,  38 => 8,  33 => 4,  30 => 3,);
     }
 }

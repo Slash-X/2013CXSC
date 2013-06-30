@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Slashx\AdminBundle\Entity\Papillon;
 use Slashx\AdminBundle\Form\PapillonType;
+use Slashx\AdminBundle\Entity\Album;
 
 /**
  * Papillon controller.
@@ -49,6 +50,12 @@ class PapillonController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
+        	
+        	// On crée automatiquement son album quand on crée un papillon
+        	$album = new Album();
+        	$album->setTitre($entity->getNom());
+        	$entity->setAlbum($album);
+        	
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

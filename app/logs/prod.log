@@ -11,3 +11,4 @@
 [2013-06-23 22:01:30] request.ERROR: Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /"" at /Applications/MAMP/htdocs/charaxes/app/cache/prod/classes.php line 3597 [] []
 [2013-06-24 20:50:00] request.ERROR: Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /"" at /Applications/MAMP/htdocs/charaxes/app/cache/prod/classes.php line 3597 [] []
 [2013-06-25 19:36:06] request.ERROR: Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /"" at /Applications/MAMP/htdocs/charaxes/app/cache/prod/classes.php line 3597 [] []
+[2013-06-30 10:05:50] request.ERROR: Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /"" at /Applications/MAMP/htdocs/charaxes/app/cache/prod/classes.php line 3597 [] []

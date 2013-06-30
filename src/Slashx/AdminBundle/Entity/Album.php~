@@ -27,6 +27,21 @@ class Album
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
+    
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorie", type="string", length=255,nullable=true)
+     */
+    private $categorie;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sousCategorie", type="string", length=255,nullable=true)
+     */
+    private $sousCategorie;
 
     /**
      * @ORM\OneToOne(targetEntity="Slashx\AdminBundle\Entity\Papillon", cascade={"persist"})
@@ -109,5 +124,74 @@ class Album
     public function getPhotographies()
     {
         return $this->photographies;
+    }
+
+    /**
+     * Set papillon
+     *
+     * @param \Slashx\AdminBundle\Entity\Papillon $papillon
+     * @return Album
+     */
+    public function setPapillon(\Slashx\AdminBundle\Entity\Papillon $papillon = null)
+    {
+        $this->papillon = $papillon;
+    
+        return $this;
+    }
+
+    /**
+     * Get papillon
+     *
+     * @return \Slashx\AdminBundle\Entity\Papillon 
+     */
+    public function getPapillon()
+    {
+        return $this->papillon;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param string $categorie
+     * @return Album
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return string 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set sousCategorie
+     *
+     * @param string $sousCategorie
+     * @return Album
+     */
+    public function setSousCategorie($sousCategorie)
+    {
+        $this->sousCategorie = $sousCategorie;
+    
+        return $this;
+    }
+
+    /**
+     * Get sousCategorie
+     *
+     * @return string 
+     */
+    public function getSousCategorie()
+    {
+        return $this->sousCategorie;
     }
 }

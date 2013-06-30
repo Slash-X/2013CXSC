@@ -1,8 +1,14 @@
 {% extends 'SlashxAdminBundle::layout.html.twig' %}
 
 {% block block_title %}
-GESTION SYSTEMATIQUE 
+GESTION DE LA SYSTEMATIQUE 
 {% endblock %}
+
+
+{% block block_description %}
+Ce module permet de gérer toute la partie systématique du site.
+{% endblock %}
+
 
 {% block sub_main %}
 	<table class="records_list">
@@ -34,6 +40,9 @@ GESTION SYSTEMATIQUE
                     </li>
                     <li>
                         <a href="{{ path('publication', { 'id': entity.id }) }}">Publication</a>
+                    </li>
+                      <li>
+                        <a href="{{ path('album', { 'id': entity.id }) }}">Album</a>
                     </li>
                 </ul>
                 </td>

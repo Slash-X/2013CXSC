@@ -27,8 +27,26 @@ class AlbumController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('SlashxAdminBundle:Album')->findAll();
+        
+        $request = $this->getRequest();
+        $id = $request->query->get('id');
+        
+        $entities = null;
+        if ($id==null)
+        {
+        	$entities = $em->getRepository('SlashxAdminBundle:Album')->findAll();
+        }else 
+        {
+        	$papillon = $em->getRepository('SlashxAdminBundle:Papillon')->find($id);
+       
+        	$entities = array();
+        	$entities[]=$papillon->getAlbum();
+        	
+       
+        }
+        
+       
+        
 
         return array(
             'entities' => $entities,

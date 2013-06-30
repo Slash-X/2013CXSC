@@ -12,11 +12,13 @@ class AlbumType extends AbstractType
     {
         $builder
             ->add('titre')
+            ->add('categorie')
+            ->add('sousCategorie')
             ->add('papillon','entity',array(
-             	'class'=>"SlashxAdminBundle:Papillon",
-           		'property'=>'nom',
-            		'required' => false,
-        ))
+				'class'=>"SlashxAdminBundle:Papillon",
+				'property'=>'nom',
+				'required' => false,
+		))
         ;
     }
 
@@ -32,3 +34,4 @@ class AlbumType extends AbstractType
         return 'slashx_adminbundle_albumtype';
     }
 }
+

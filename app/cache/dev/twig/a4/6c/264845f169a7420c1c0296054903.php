@@ -13,6 +13,7 @@ class __TwigTemplate_a46c264845f169a7420c1c0296054903 extends Twig_Template
             'navigation_hz' => array($this, 'block_navigation_hz'),
             'main' => array($this, 'block_main'),
             'block_title' => array($this, 'block_block_title'),
+            'block_description' => array($this, 'block_block_description'),
             'sub_main' => array($this, 'block_sub_main'),
         );
     }
@@ -41,64 +42,59 @@ class __TwigTemplate_a46c264845f169a7420c1c0296054903 extends Twig_Template
 \t\t\t\t\t\t<li>&#8250; <a href=\"\">Site config</a></li>
 \t\t\t\t\t</ul>
 \t\t\t\t</li>
-\t\t\t\t<li class=\"upp\"><a href=\"#\">Systématique</a>
-\t\t\t\t\t<ul>
-\t\t\t\t\t\t<li>&#8250; <a href=\"";
-        // line 17
+\t\t\t\t<li class=\"upp\"><a href=\"";
+        // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("papillon"), "html", null, true);
-        echo "\">Show all pages</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Add new page</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Add new gallery</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Categories</a></li>
-\t\t\t\t\t</ul>
+        echo "\">Systématique</a>
 \t\t\t\t</li>
-\t\t\t\t<li class=\"upp\"><a href=\"#\">Album</a>
-\t\t\t\t\t<ul>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Show all uses</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Add new user</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Lock users</a></li>
-\t\t\t\t\t</ul>
-\t\t\t\t</li>
-\t\t\t\t<li class=\"upp\"><a href=\"#\">A propos</a>
-\t\t\t\t\t<ul>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Show all uses</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Add new user</a></li>
-\t\t\t\t\t\t<li>&#8250; <a href=\"\">Lock users</a></li>
-\t\t\t\t\t</ul>
+\t\t\t\t<li class=\"upp\"><a href=\"";
+        // line 17
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("album"), "html", null, true);
+        echo "\">Album</a>
 \t\t\t\t</li>
 \t\t\t</ul>
 \t\t</div>
 \t\t";
     }
 
-    // line 42
+    // line 24
     public function block_main($context, array $blocks = array())
     {
-        // line 43
+        // line 25
         echo "\t    <div class=\"full_w\">
 \t\t\t<div class=\"h_title\">";
-        // line 44
+        // line 26
         $this->displayBlock('block_title', $context, $blocks);
         echo "</div>
+\t\t\t<div class=\"h_descripion\">";
+        // line 27
+        $this->displayBlock('block_description', $context, $blocks);
+        echo "</div>
 \t\t\t\t\t";
-        // line 45
+        // line 28
         $this->displayBlock('sub_main', $context, $blocks);
-        // line 47
+        // line 30
         echo "\t\t\t\t
 \t\t</div>
 \t\t";
     }
 
-    // line 44
+    // line 26
     public function block_block_title($context, array $blocks = array())
     {
         echo "block_title";
     }
 
-    // line 45
+    // line 27
+    public function block_block_description($context, array $blocks = array())
+    {
+        echo "block_description";
+    }
+
+    // line 28
     public function block_sub_main($context, array $blocks = array())
     {
-        // line 46
+        // line 29
         echo "\t\t\t\t\t";
     }
 
@@ -114,6 +110,6 @@ class __TwigTemplate_a46c264845f169a7420c1c0296054903 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  102 => 46,  99 => 45,  93 => 44,  87 => 47,  85 => 45,  81 => 44,  78 => 43,  75 => 42,  48 => 17,  34 => 5,  31 => 4,  114 => 46,  108 => 42,  96 => 36,  90 => 33,  84 => 30,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  98 => 29,  95 => 28,  89 => 27,  83 => 26,  77 => 30,  75 => 28,  71 => 27,  64 => 25,  61 => 24,  52 => 17,  47 => 15,  35 => 5,  32 => 4,  129 => 55,  123 => 51,  111 => 45,  105 => 42,  99 => 39,  93 => 36,  86 => 32,  82 => 31,  78 => 30,  74 => 29,  70 => 28,  67 => 26,  63 => 26,  49 => 14,  46 => 13,  41 => 9,  38 => 8,  33 => 4,  30 => 3,);
     }
 }
