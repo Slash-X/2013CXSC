@@ -14,11 +14,7 @@ class AlbumType extends AbstractType
             ->add('titre')
             ->add('categorie')
             ->add('sousCategorie')
-            ->add('papillon','entity',array(
-				'class'=>"SlashxAdminBundle:Papillon",
-				'property'=>'nom',
-				'required' => false,
-		))
+            
         ;
     }
 

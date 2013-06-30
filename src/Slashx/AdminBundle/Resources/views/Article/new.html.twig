@@ -1,0 +1,28 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block sub_main -%}
+    <h1>Article creation</h1>
+
+    <form action="{{ path('article_create') }}" method="post" {{ form_enctype(form) }}>
+         <div class="element">
+	        {{ form_label(form.titre, 'Titre') }}
+	        {{ form_errors(form.titre) }}
+	        {{ form_widget(form.titre,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	       <div class="element">
+	        {{ form_label(form.contenu, "Corps de l'article") }}
+	        {{ form_errors(form.contenu) }}
+ 			{{ form_widget(form.contenu,{ 'attr': {'class': 'TinyMCE'} }) }}
+	    </div> 
+
+
+
+{{ form_widget(form) }}
+
+  <p class="record_actions">
+            <button type="submit" class="add">Enregistrer</button>
+            <a class="button cancel" href="{{ path('article') }}">
+            Retourner à la liste des articles
+        </a>
+        </p>
+{% endblock %}

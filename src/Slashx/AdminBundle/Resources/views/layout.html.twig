@@ -4,6 +4,14 @@
 {% block navigation_hz %}
 		<div id="nav">
 			<ul>
+			<li class="upp"><a href="{{ path('article') }}">Articles</a>
+				</li>
+				
+				<li class="upp"><a href="{{ path('papillon') }}">Systématique</a>
+				</li>
+				<li class="upp"><a href="{{ path('album') }}">Album</a>
+				</li>
+				
 				<li class="upp"><a href="#">Articles</a>
 					<ul>
 						<li>&#8250; <a href="">Visit site</a></li>
@@ -11,10 +19,6 @@
 						<li>&#8250; <a href="">Add new page</a></li>
 						<li>&#8250; <a href="">Site config</a></li>
 					</ul>
-				</li>
-				<li class="upp"><a href="{{ path('papillon') }}">Systématique</a>
-				</li>
-				<li class="upp"><a href="{{ path('album') }}">Album</a>
 				</li>
 			</ul>
 		</div>

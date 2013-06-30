@@ -5,7 +5,7 @@ GESTION PHOTOGRAPHIE
 {% endblock %}
 
 {% block sub_main %}
-    <h1>Photographie edit</h1>
+    <h1>Photographie : Modification</h1>
 
     <form action="{{ path('photographie_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />

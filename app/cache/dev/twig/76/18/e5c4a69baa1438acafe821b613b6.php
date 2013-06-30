@@ -127,7 +127,7 @@ class __TwigTemplate_7618e5c4a69baa1438acafe821b613b6 extends Twig_Template
 \t\t\t
 \t\t\ttinymce.init({
 \t\t\t    selector: \"textarea.TinyMCE\",
-\t\t\t    height : 150
+\t\t\t    height : 350
 \t\t\t });
 </script>
         ";

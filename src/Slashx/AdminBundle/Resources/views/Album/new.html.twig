@@ -15,12 +15,20 @@ GESTION DES ALBUMS
 	        {{ form_widget(form.titre,{ 'attr': {'class': 'text'} }) }}
 	    </div>
 	    
-	    <div class="element">
-	        {{ form_label(form.papillon, 'Papillon') }}
-	        {{ form_errors(form.papillon) }}
-	        {{ form_widget(form.papillon) }}
+	          <div class="element">
+	        {{ form_label(form.categorie, 'Catégorie') }}
+	        {{ form_errors(form.categorie) }}
+	        {{ form_widget(form.categorie,{ 'attr': {'class': 'text'} }) }}
 	    </div>
-        {{ form_widget(form) }}
+	    
+	            <div class="element">
+	        {{ form_label(form.sousCategorie, 'Sous-Catégorie') }}
+	        {{ form_errors(form.sousCategorie) }}
+	        {{ form_widget(form.sousCategorie,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	    
+	
+        {{ form_widget(form) }} 
       
         
         <p class="record_actions">

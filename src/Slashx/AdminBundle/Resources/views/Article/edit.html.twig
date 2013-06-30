@@ -1,0 +1,37 @@
+{% extends 'SlashxAdminBundle::layout.html.twig' %}
+
+{% block sub_main -%}
+    <h1>Article : Modification</h1>
+
+    <form action="{{ path('article_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <input type="hidden" name="_method" value="PUT" />
+                 <div class="element">
+	        {{ form_label(edit_form.titre, 'Titre') }}
+	        {{ form_errors(edit_form.titre) }}
+	        {{ form_widget(edit_form.titre,{ 'attr': {'class': 'text'} }) }}
+	    </div>
+	       <div class="element">
+	        {{ form_label(edit_form.contenu, "Corps de l'article") }}
+	        {{ form_errors(edit_form.contenu) }}
+ 			{{ form_widget(edit_form.contenu,{ 'attr': {'class': 'TinyMCE'} }) }}
+	    </div> 
+
+
+
+
+
+{{ form_widget(edit_form) }}
+       <p class="record_actions">
+            <button type="submit" class="add">Enregistrer</button>
+            <a class="button cancel" href="{{ path('article') }}">
+            Retourner à la liste des articles
+        </a>
+        </p>
+        </form>
+        <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+
+{% endblock %}
